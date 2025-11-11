@@ -24,8 +24,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Verify app starts
-        run: |
-          uvicorn main:app --host 0.0.0.0 --port 8000 &
-          sleep 5
-          curl http://127.0.0.1:8000/health
+      - name: Run Test
+        run: pytest -v
